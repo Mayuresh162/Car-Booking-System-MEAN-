@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-toolbar class="header">
+    <mat-toolbar-row>
+      <span>Select Driver</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="language-select">
+      <mat-form-field floatLabel="never">
+        <mat-label>Choose a language</mat-label>
+        <mat-select id="language" [(value)]="selectedLang" (selectionChange)="filterDriver($event.value)">
+          <mat-option value="All">ALL</mat-option>
+          <mat-option value="Hindi">Hindi</mat-option>
+          <mat-option value="Kannada">Kannada</mat-option>
+          <mat-option value="English">English</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card-content>
+    <table mat-table [dataSource]="driverDataSource" matSort class="table">
+
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef class="th"></th>
+        <td mat-cell *matCellDef="let element" class="td">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="onDriverSelected(element)"
+                        [checked]="selection.isSelected(element)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="th"> Name </th>
+        <td mat-cell *matCellDef="let element" class="td">
+          <p class="text-content-style">
+            {{element.name}}
+          </p></td>
+      </ng-container>
+    
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="th"> Price </th>
+        <td mat-cell *matCellDef="let element" class="td">
+          <p class="text-content-style">
+            {{element.price}}
+          </p> </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="language">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="th"> Language </th>
+        <td mat-cell *matCellDef="let element" class="td"> 
+          <p class="text-content-style">
+            {{element.language}}
+          </p></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <button mat-raised-button color="primary" [disabled]="!selection.isSelected" (click)="navigateToPay()">Book</button>
+  </mat-card-content>
+</mat-card>

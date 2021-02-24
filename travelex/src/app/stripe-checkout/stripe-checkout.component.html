@@ -1,0 +1,19 @@
+<section class="content">
+  <form #stripeForm="ngForm" (ngSubmit)="createStripeToken()" class="checkout">
+    <label for="card-info">Card Info</label>
+    <mat-form-field>
+      <mat-label for="fullName">Full Name</mat-label>
+      <input matInput type="text" name="fullName" placeholder="Enter your Full name" [(ngModel)]="paymentDetails.fullName" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="amount">Amount</mat-label>
+      <input matInput type="number" name="amount" placeholder="Enter amount" [(ngModel)]="paymentDetails.amount" required>
+    </mat-form-field>
+    <div id="form-field">
+      <div id="card-element"></div>
+    </div>
+    <button mat-raised-button id="submit-button" type="submit" color="primary">
+        Pay 
+    </button>
+  </form>
+</section>

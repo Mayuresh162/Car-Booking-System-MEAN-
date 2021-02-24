@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header">
+    <span>Travelex</span>
+    <div *ngIf="isAuthenticate">
+      <button mat-raised-button color="accent" (click)="onLogout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

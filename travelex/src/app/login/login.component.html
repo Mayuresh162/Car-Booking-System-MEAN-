@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <h2>LOGIN</h2>
+      <mat-form-field>
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="text" name="email" placeholder="Enter your email" [(ngModel)]="newUser.email" required [pattern]="emailRegex">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="password">Password</mat-label>
+        <input matInput type="password" name="password" placeholder="Enter your password" [(ngModel)]="newUser.password" required minlength="4">
+      </mat-form-field>
+      <div class="align-item">
+        <button mat-raised-button color="primary" [disabled]="!loginForm?.valid || !loginForm?.dirty || shouldDisable()">Login</button>
+        <span class="new-user">New User? <a routerLink="/register">Register</a></span>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

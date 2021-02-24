@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-content>
+    <form #booking="ngForm" (ngSubmit)="onSubmit()">
+      <h2>BOOKING</h2>
+      <mat-form-field floatLabel="never">
+        <mat-label>Select trip type</mat-label>
+        <mat-select id="tripType" [(value)]="selectedType">
+          <mat-option value="ONE_WAY">One Way</mat-option>
+          <mat-option value="ROUND_TRIP">Round Trip</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field floatLabel="never">
+        <input matInput type="text" name="pickup" placeholder="Enter pickup location" [(ngModel)]="booking.pickup" ngx-google-places-autocomplete [options]= 
+        'options' (onAddressChange)="pickupAddressChange($event)" required>
+      </mat-form-field>
+      <mat-form-field floatLabel="never">
+        <input matInput type="text" name="destination" placeholder="Enter destination" [(ngModel)]="booking.destination"ngx-google-places-autocomplete [options]= 
+        'options' (onAddressChange)="destAddressChange($event)" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-form-field">
+        <mat-label>Journey Date</mat-label>
+        <input matInput [matDatepicker]="startDatepicker" [(ngModel)]="booking.departDate" [min]="today" name="departDate" (dateChange)="startDateChanged(booking.departDate)" required>
+        <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-form-field" *ngIf="selectedType === 'ROUND_TRIP'">
+        <mat-label>Return date</mat-label>
+        <input matInput [matDatepicker]="endDatepicker" [(ngModel)]="booking.returnDate" [min]="booking.departDate" name="returnDate" (dateChange)="endDateChanged(booking.returnDate)" required>
+        <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatepicker></mat-datepicker>
+      </mat-form-field>
+      <!-- <div>{{ fare }}</div> -->
+      <button mat-raised-button color="primary" [disabled]="!booking?.valid || !booking?.dirty">Request Now</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content>
+    <form #paymentForm="ngForm" (ngSubmit)="onSubmit()">
+      <h2>PAYMENT</h2>
+      <mat-form-field>
+        <input matInput type="text" name="pickupAddress" placeholder="Enter pickup address" [(ngModel)]="payment.pickupAddress" required>
+      </mat-form-field>
+      <mat-form-field >
+        <input matInput type="time" name="pickupTime" placeholder="Enter pickup time" [(ngModel)]="payment.pickupTime" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!paymentForm?.valid || !paymentForm?.dirty || shouldDisable()">Pay</button>
+    </form>
+  </mat-card-content>
+</mat-card>

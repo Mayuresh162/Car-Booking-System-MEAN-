@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-content>
+    <div class="ticket-header">
+      <h2>Thank you for booking on Travelex</h2>
+      <span class="ticket-detail">Ticket Details</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Source: </span>
+      <span>{{ticket.source}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Destination: </span>
+      <span>{{ticket.destination}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Pickup Address: </span>
+      <span>{{ticket.pickupAddress}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Pickup Time: </span>
+      <span>{{ticket.pickupTime}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Travel Start Date: </span>
+      <span>{{ticket.departDate}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Travel End Date: </span>
+      <span>{{ticket.returnDate}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Trip Type: </span>
+      <span>{{ticket.tripType}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Driver Name: </span>
+      <span>{{ticket.driverName}}</span>
+    </div>
+    <div class="content-spacing">
+      <span class="ticket-content-header">Fare: </span>
+      <span>{{ticket.fare}}</span>
+    </div>
+    <button mat-raised-button (click)="done()">DONE</button>
+  </mat-card-content>
+</mat-card>

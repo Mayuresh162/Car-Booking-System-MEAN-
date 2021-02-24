@@ -1,0 +1,28 @@
+.content {
+    min-width: 350px;
+    max-width: 350px;
+    height: 250px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+#card-detail {
+    padding-bottom: 10px;
+}
+
+button {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 10px;
+}

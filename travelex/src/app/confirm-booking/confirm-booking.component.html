@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="small-toolbar">
+  {{title}}
+</mat-toolbar>
+<section class="content">
+  <div class="confirm-driver">
+    <span>{{ driverName }}</span>
+    <span>{{ driverLanguage }}</span>
+    <span>{{ fare }}</span>
+  </div>
+  <div class="button-row">
+    <div class="btn-right">
+      <button mat-raised-button class="cancel-button" tabindex="-1" color="primary"
+        (click)="cancel()">{{negativeButtonText}}</button>
+    </div>
+    <div>
+      <button mat-raised-button tabindex="-1" color="primary" (click)="actionConfirmed()">{{positiveButtonText}}</button>
+    </div>
+  </div>
+</section>
